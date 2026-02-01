@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0b0e17;
+  color: #fff;
+}
+
+.topbar {
+  padding: 12px 16px;
+  background: #14182e;
+  display: flex;
+  align-items: center;
+}
+
+.emblem {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.div-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  background: #0f1326;
+}
+
+.div-tabs button {
+  flex: 1;
+  padding: 8px;
+  background: #1a1f3d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.div-tabs button.active {
+  background: #7c4dff;
+}
+
+main {
+  padding: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: #14182e;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+#closeModal {
+  float: right;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+}

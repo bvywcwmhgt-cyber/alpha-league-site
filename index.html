@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALLIANCE BATTLE α</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <img src="assets/league-emblem/league-emblem.png" alt="league emblem" class="emblem">
+    <h1>ALLIANCE BATTLE α</h1>
+  </div>
+</header>
+
+<nav class="div-tabs">
+  <button data-div="1" class="active">Div.1</button>
+  <button data-div="2">Div.2</button>
+  <button data-div="3">Div.3</button>
+  <button data-div="4">Div.4</button>
+</nav>
+
+<main>
+  <section id="standings">
+    <h2 id="divTitle">Division 1 Standings</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Team</th>
+          <th>Pts</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </section>
+</main>
+
+<!-- Team Modal -->
+<div id="teamModal" class="modal hidden">
+  <div class="modal-bg"></div>
+  <div class="modal-box">
+    <button id="closeModal">×</button>
+    <h3>Team Detail</h3>
+    <p>チーム詳細はここに表示</p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
