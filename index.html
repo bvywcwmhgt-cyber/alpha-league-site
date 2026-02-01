@@ -1,124 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>α LEAGUE</title>
-  <link rel="stylesheet" href="./style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ALLIANCE BATTLE α</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="topbar">
-    <div class="brand">
-      <img class="brand-logo" id="leagueEmblem" src="./assets/league-emblem.jpeg" alt="League" />
-      <div class="brand-text">
-        <div class="brand-title" id="leagueName">ALLIANCE BATTLE α</div>
-        <div class="brand-sub">Standings</div>
-      </div>
-    </div>
+<header>
+  <img src="assets/league-emblem/league-emblem.png" height="40">
+  <h1>ALLIANCE BATTLE α</h1>
+</header>
 
-    <div class="topbar-right">
-      <div class="season">
-        <button class="ghost" id="seasonBtn" type="button">
-          <span class="pill">
-            <span class="dot-accent"></span>
-            <span id="seasonLabel">Season 1</span>
-            <span class="chev">▼</span>
-          </span>
-        </button>
-        <div class="menu" id="seasonMenu" hidden></div>
-      </div>
+<nav>
+  <button onclick="setDiv(1)">Div.1</button>
+  <button onclick="setDiv(2)">Div.2</button>
+  <button onclick="setDiv(3)">Div.3</button>
+  <button onclick="setDiv(4)">Div.4</button>
+</nav>
 
-      <button class="ghost" id="adminBtn" type="button" title="管理">
-        <span class="pill">
-          <span class="gear">⚙︎</span>
-          管理
-        </span>
-      </button>
-    </div>
-  </div>
+<table id="table"></table>
 
-  <div class="tabs" id="divTabs"></div>
-
-  <div class="app">
-    <section class="panel panel-left">
-      <div class="panel-header">
-        <div class="panel-head">
-          <img class="div-logo" id="divLogo" src="./assets/div/div1.png" alt="Div">
-          <div>
-            <div class="title" id="divLabel">α LEAGUE Division 1</div>
-            <div class="sub">リーグ順位表</div>
-          </div>
-        </div>
-
-        <div class="header-actions">
-          <button class="mini" id="genScheduleBtn" type="button">全日程生成</button>
-        </div>
-      </div>
-
-      <div class="table-wrap">
-        <table class="standings" id="standingsTable">
-          <thead>
-            <tr>
-              <th class="col-move"> </th>
-              <th class="col-rank">順位</th>
-              <th class="col-team">チーム</th>
-              <th>試合</th>
-              <th>勝</th>
-              <th>分</th>
-              <th>負</th>
-              <th>得点</th>
-              <th>失点</th>
-              <th>差</th>
-              <th>勝点</th>
-              <th class="col-form">調子</th>
-            </tr>
-          </thead>
-          <tbody id="standingsBody"></tbody>
-        </table>
-      </div>
-
-      <div class="legend">
-        <span class="tag tag-yellow">優勝</span>
-        <span class="tag tag-green">昇格</span>
-        <span class="tag tag-cyan">PO</span>
-        <span class="tag tag-orange">PO</span>
-        <span class="tag tag-red">降格</span>
-      </div>
-    </section>
-
-    <aside class="panel panel-right">
-      <section class="card">
-        <div class="card-head">
-          <div class="card-head-left">
-            <img class="div-logo small" id="roundDivLogo" src="./assets/div/div1.png" alt="Div">
-            <div>
-              <div class="card-title" id="roundTitle">Div.1 第1節</div>
-              <div class="card-sub" id="roundSub">結果 / 予定</div>
-            </div>
-          </div>
-
-          <div class="round-controls">
-            <button class="mini" id="prevRound" type="button">◀</button>
-            <select class="round-select" id="roundSelect"></select>
-            <button class="mini" id="nextRound" type="button">▶</button>
-          </div>
-        </div>
-
-        <div class="list" id="roundList"></div>
-      </section>
-    </aside>
-  </div>
-
-  <div class="modal-backdrop" id="teamModal" hidden>
-    <div class="modal">
-      <div class="modal-top">
-        <div class="modal-title" id="teamModalTitle">Team</div>
-        <button class="icon-btn" id="teamModalClose" type="button">✕</button>
-      </div>
-      <div class="modal-body" id="teamModalBody"></div>
-    </div>
-  </div>
-
-  <script src="./app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
