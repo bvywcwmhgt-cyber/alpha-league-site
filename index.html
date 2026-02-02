@@ -21,14 +21,14 @@
       </div>
     </div>
   </div>
-  <button id="openAdmin" class="btn primary">チーム管理</button>
+  <button id="openAdmin" class="btn primary">管理</button>
 </header>
 
 <nav class="div-tabs" id="divTabs">
-  <button data-div="1" class="tab active"><img src="assets/div/div1.png" alt="Div1">Div.1</button>
-  <button data-div="2" class="tab"><img src="assets/div/div2.png" alt="Div2">Div.2</button>
-  <button data-div="3" class="tab"><img src="assets/div/div3.png" alt="Div3">Div.3</button>
-  <button data-div="4" class="tab"><img src="assets/div/div4.png" alt="Div4">Div.4</button>
+  <button data-div="1" class="tab active"><img id="tabLogo1" src="assets/div/div1.png" alt="Div1">Div.1</button>
+  <button data-div="2" class="tab"><img id="tabLogo2" src="assets/div/div2.png" alt="Div2">Div.2</button>
+  <button data-div="3" class="tab"><img id="tabLogo3" src="assets/div/div3.png" alt="Div3">Div.3</button>
+  <button data-div="4" class="tab"><img id="tabLogo4" src="assets/div/div4.png" alt="Div4">Div.4</button>
 </nav>
 
 <main class="wrap">
@@ -58,12 +58,11 @@
   </section>
 </main>
 
-<!-- Admin Modal -->
 <div id="adminModal" class="modal hidden" aria-hidden="true">
   <div class="modal-bg" data-close="1"></div>
   <div class="modal-box" role="dialog" aria-modal="true">
     <div class="modal-head">
-      <div class="modal-title">チーム管理（追加/編集/削除）</div>
+      <div class="modal-title">管理（エンブレム / チーム）</div>
       <button class="iconbtn" id="closeAdmin" aria-label="閉じる">×</button>
     </div>
 
@@ -71,7 +70,49 @@
       <div class="admin-grid">
         <div class="card">
           <div class="card-head">
-            <div class="card-title">チーム一覧</div>
+            <div>
+              <div class="card-title">エンブレム編集</div>
+              <div class="hint">※ 端末内に保存（localStorage）。別端末には自動で共有されません。</div>
+            </div>
+            <button id="resetEmblemsBtn" class="btn danger">リセット</button>
+          </div>
+
+          <div class="form">
+            <div class="row">
+              <label>リーグエンブレム</label>
+              <input id="leagueEmblemInput" class="input" type="file" accept="image/*">
+              <div class="preview"><img id="leagueEmblemPreview" alt="league preview"></div>
+            </div>
+
+            <div class="row">
+              <label>Div.1 エンブレム</label>
+              <input id="div1EmblemInput" class="input" type="file" accept="image/*">
+              <div class="preview"><img id="div1EmblemPreview" alt="div1 preview"></div>
+            </div>
+
+            <div class="row">
+              <label>Div.2 エンブレム</label>
+              <input id="div2EmblemInput" class="input" type="file" accept="image/*">
+              <div class="preview"><img id="div2EmblemPreview" alt="div2 preview"></div>
+            </div>
+
+            <div class="row">
+              <label>Div.3 エンブレム</label>
+              <input id="div3EmblemInput" class="input" type="file" accept="image/*">
+              <div class="preview"><img id="div3EmblemPreview" alt="div3 preview"></div>
+            </div>
+
+            <div class="row">
+              <label>Div.4 エンブレム</label>
+              <input id="div4EmblemInput" class="input" type="file" accept="image/*">
+              <div class="preview"><img id="div4EmblemPreview" alt="div4 preview"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">チーム管理（追加/編集/削除）</div>
             <div class="card-actions">
               <select id="adminDivSelect" class="select">
                 <option value="1">Div.1</option>
@@ -82,47 +123,46 @@
               <button id="newTeamBtn" class="btn">＋ 追加</button>
             </div>
           </div>
-          <div id="adminTeamList" class="teamlist"></div>
-        </div>
 
-        <div class="card">
-          <div class="card-head">
-            <div class="card-title">編集</div>
-            <div class="hint">※ 保存すると順位表にも反映されます</div>
-          </div>
-
-          <div class="form">
-            <input type="hidden" id="teamIdInput">
-            <div class="row">
-              <label>チーム名</label>
-              <input id="teamNameInput" class="input" placeholder="例: GUROU">
-            </div>
-            <div class="row">
-              <label>所属Div</label>
-              <select id="teamDivInput" class="select">
-                <option value="1">Div.1</option>
-                <option value="2">Div.2</option>
-                <option value="3">Div.3</option>
-                <option value="4">Div.4</option>
-              </select>
-            </div>
-            <div class="row">
-              <label>ロゴ画像</label>
-              <input id="teamLogoInput" class="input" type="file" accept="image/*">
-              <div class="hint">画像を選ばない場合は既存ロゴのまま／新規は仮ロゴになります</div>
+          <div class="admin-grid-2">
+            <div>
+              <div id="adminTeamList" class="teamlist"></div>
             </div>
 
-            <div class="preview">
-              <img id="logoPreview" alt="preview">
-            </div>
+            <div class="form">
+              <input type="hidden" id="teamIdInput">
+              <div class="row">
+                <label>チーム名</label>
+                <input id="teamNameInput" class="input" placeholder="例: GUROU">
+              </div>
+              <div class="row">
+                <label>所属Div</label>
+                <select id="teamDivInput" class="select">
+                  <option value="1">Div.1</option>
+                  <option value="2">Div.2</option>
+                  <option value="3">Div.3</option>
+                  <option value="4">Div.4</option>
+                </select>
+              </div>
+              <div class="row">
+                <label>ロゴ画像</label>
+                <input id="teamLogoInput" class="input" type="file" accept="image/*">
+                <div class="hint">画像を選ばない場合は既存ロゴのまま／新規は仮ロゴになります</div>
+              </div>
 
-            <div class="row actions">
-              <button id="deleteTeamBtn" class="btn danger">削除</button>
-              <div class="spacer"></div>
-              <button id="saveTeamBtn" class="btn primary">保存</button>
+              <div class="preview">
+                <img id="logoPreview" alt="preview">
+              </div>
+
+              <div class="row actions">
+                <button id="deleteTeamBtn" class="btn danger">削除</button>
+                <div class="spacer"></div>
+                <button id="saveTeamBtn" class="btn primary">保存</button>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
